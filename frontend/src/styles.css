@@ -1,24 +1,68 @@
+*,*::before, *::after {
+    box-sizing: border-box;
+}
 :root {
+    --color-primary: #1d4ed8;
+    --color-primary-dark: #1e3a8a;
+    --color-surface: #ffffff;
+    --color-background: #f5f7fb;
+    --color-nav: #f0e3d8;
+    --color-border: #cbd5e1;
+    --color-text: #1f2937;
+    --radius: 0.75rem;
+    --space: 1rem;
     font-family: system-ui, sans-serif;
     line-height: 1.5;
 }
 body {
-    max-width: 960px;
-    margin: 0 auto;
+    margin: 0;
+    background: var(--color-background);
+    color: var(--color-text);
+    max-width: device-width;
     padding: 1rem;
 }
+main {
+    width: min(1100px, calc(100% - 2rem));
+    margin-inline: auto;
+    margin-left: auto;
+}
+
+footer {
+    padding-block: 1rem;
+    border-top: 1px solid var(--color-border);
+    text-align: center;
+    margin: 0 12rem;
+    text-decoration: none;
+}
+
 .site-header {
+    padding-block: 1rem;
+    border-bottom: 1px solid var(--color-border);
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 1rem;
-    padding-bottom: 0.75rem;
-    border-bottom: 1px solid #cbd5e1;
+    margin: 0 12rem;
+    width: device-width;
+}
+
+.brand {
+    color: var(--color-primary-dark); 
+    font-weight: 700;
+    text-decoration: none;
+}
+
+nav a {
+    color: var(--color-text);
+    margin-right: 0;
+    font-weight: 600;
+    font-size: 20px;
+    text-decoration: none;
 }
 
 nav {
     display: flex;
-    gap: 1rem;
+    gap: 3rem;
 }
 
 img {
@@ -54,4 +98,54 @@ textarea {
 .hint {
     margin-top: 0.25rem;
     color: #475569;
+}
+
+.equipment-card {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 1rem;
+    margin-block: 1rem;
+    background: var(--color-surface);
+}
+
+.equipment-card img {
+    max-width: 100%;
+    height: auto;
+}
+
+fieldset {
+margin-block: 1rem;
+padding: 1rem;
+border: 1px solid var(--color-border);
+border-radius: var(--radius);
+}
+
+label {
+display: block;
+margin-top: .75rem;
+}
+
+input, select, textarea {
+width: 100%;
+padding: .7rem;
+border: 1px solid var(--color-border);
+border-radius: .5rem;
+font: inherit;
+}
+
+input setuju, select setuju, textarea setuju {
+    width: 0;
+    display: inline-block;
+}
+
+input:focus, select:focus, textarea:focus, button:focus {
+    outline: 3px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: device-width;
 }
