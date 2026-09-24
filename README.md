@@ -10,3 +10,10 @@ cd frontend
 npm install
 npm run dev
 ```
+
+## Fitur
+1. Beranda dengan menu navigasi.
+
+2. Halaman katalog peralatan. Lengkap dengan foto, deskripsi, dan ketersediaan masing-masing peralatan.
+
+3. Halaman formulir peminjaman dengan urutan input top-down dan validasi input.
