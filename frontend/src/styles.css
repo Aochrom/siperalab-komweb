@@ -11,6 +11,8 @@
     --color-text: #1f2937;
     --radius: 0.75rem;
     --space: 1rem;
+    --space-2: 2rem;
+    --space-3: 3rem;
     font-family: system-ui, sans-serif;
     line-height: 1.5;
 }
@@ -18,7 +20,6 @@ body {
     margin: 0;
     background: var(--color-background);
     color: var(--color-text);
-    max-width: device-width;
     padding: 1rem;
 }
 main {
@@ -31,38 +32,53 @@ footer {
     padding-block: 1rem;
     border-top: 1px solid var(--color-border);
     text-align: center;
-    margin: 0 12rem;
+    margin-inline: auto;
+    width: min(1100px, calc(100% - 2rem));
     text-decoration: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .site-header {
-    padding-block: 1rem;
+    padding-block: var(--space);
     border-bottom: 1px solid var(--color-border);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 1rem;
-    margin: 0 12rem;
-    width: device-width;
+    gap: var(--space-2);
+    flex-wrap: wrap;
+    margin-inline: auto;
+    width: min(1100px, calc(100% - 2rem));
+}
+
+.site-header nav {
+    display: flex;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+    align-items: center;
+    margin-left: auto;
 }
 
 .brand {
     color: var(--color-primary-dark); 
     font-weight: 700;
     text-decoration: none;
+    margin-left: 0;
 }
 
 nav a {
     color: var(--color-text);
     margin-right: 0;
     font-weight: 600;
-    font-size: 20px;
+    font-size: clamp(1rem, 4vw, 1.25rem);
     text-decoration: none;
 }
 
 nav {
     display: flex;
-    gap: 3rem;
+    gap: 0.5rem 2rem;
+    flex-wrap: wrap;
 }
 
 img {
@@ -72,9 +88,10 @@ img {
 
 article,
 fieldset {
-    margin: 1rem 0;
     padding: 1rem;
-    border: 1px solid #cbd5e1;
+    margin-block: 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
 }
 
 label {
@@ -87,8 +104,12 @@ input,
 select,
 textarea,
 button {
+    width: 100%;
+    padding: .7rem;
+    border: 1px solid var(--color-border);
+    border-radius: .5rem;
     font: inherit;
-    padding: 0.5rem;
+    margin-bottom: 0.25rem;
 }
 
 textarea {
@@ -98,6 +119,20 @@ textarea {
 .hint {
     margin-top: 0.25rem;
     color: #475569;
+}
+
+.equipment-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: var(--space-4);
+}
+
+.equipment-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-2);
+    flex-wrap: wrap;
 }
 
 .equipment-card {
@@ -120,19 +155,6 @@ border: 1px solid var(--color-border);
 border-radius: var(--radius);
 }
 
-label {
-display: block;
-margin-top: .75rem;
-}
-
-input, select, textarea {
-width: 100%;
-padding: .7rem;
-border: 1px solid var(--color-border);
-border-radius: .5rem;
-font: inherit;
-}
-
 input setuju, select setuju, textarea setuju {
     width: 0;
     display: inline-block;
@@ -147,5 +169,68 @@ input:focus, select:focus, textarea:focus, button:focus {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    width: device-width;
+}
+
+.checkbox-container input[type="checkbox"] {
+    width: auto;
+    flex: none;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 25px;
+}
+
+.checkbox-container label {
+    margin-top: 0;   /* global label margin was offsetting vertical alignment */
+    margin-bottom: 25px;
+}
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    padding: var(--space-5);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+}
+
+@media (min-width: 48rem) {
+    .hero {
+        flex-direction: row;
+        align-items: center;
+}
+
+    .hero__content,
+    .hero__media {
+        flex: 1 1 0;
+    }
+
+    .form-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+.form-grid {
+    display: grid;
+    gap: var(--space-4);
+}
+
+.form-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    margin-top: var(--space-4);
+}
+
+.form-actions > * {
+    flex: 1 1 10rem;
+}
+
+img,
+svg,
+video {
+    display: block;
+    max-width: 100%;
+    height: auto;
 }
