@@ -3,6 +3,14 @@
 Semua perubahan pada proyek ini akan didokumentasikan dalam file ini.
 
 ---
+## 2026-10-01
+
+### Fixes
+- Checkbox persetujuan pada halaman `peminjaman.html` sudah berada di posisi kiri dan bukan tengah.
+
+### Added
+- Header dan menu `nav` yang responsif terhadap viewport.
+
 
 ## 2026-09-24
 
